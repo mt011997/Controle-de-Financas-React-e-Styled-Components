@@ -1,0 +1,35 @@
+.container__geral {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.container__main {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.container__inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+@media(min-width: 1280px) {
+
+    .container__main {
+        box-sizing: border-box;
+        flex-direction: row;
+        padding: 20px;
+        margin: 0 auto;
+    }
+
+    .container__inputs {
+        display: flex;
+        flex-direction: column;
+        width: 50vw;
+        gap: 1rem;
+    }
+
+}
