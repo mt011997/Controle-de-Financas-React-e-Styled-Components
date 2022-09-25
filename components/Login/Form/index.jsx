@@ -6,11 +6,10 @@ export const Form = ({ setCard, setFiltredCards }) => {
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [type, setType] = useState("");
-  const [id, setId] = useState(0);
+  const [id, setId] = useState(Math.random() * (99999999999999 - 1));
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
     setCard((previousCard) => [
       ...previousCard,
       { description, price, type, id },
@@ -19,7 +18,7 @@ export const Form = ({ setCard, setFiltredCards }) => {
       ...previousCard,
       { description, price, type, id },
     ]);
-    setId(id + 1);
+    setId(id + Math.random() * (99999999999999 - 1) + 1);
     setPrice("");
     setType("");
     setDescription("");

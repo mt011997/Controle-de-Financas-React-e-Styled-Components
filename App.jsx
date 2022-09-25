@@ -6,11 +6,13 @@ import { Header } from "./components/Login/header";
 import { Form } from "./components/Login/Form";
 import { TotalMoney } from "./components/Login/TotalMoney";
 import { Lista } from "./components/Login/Lista";
+import { useEffect } from "react";
 
 function App() {
+  const itens = JSON.parse(localStorage.getItem("item"));
   const [auth, setAuth] = useState(false);
-  const [card, setCard] = useState([]);
-  const [filtredCard, setFiltredCards] = useState([]);
+  const [card, setCard] = useState([...itens]);
+  const [filtredCard, setFiltredCards] = useState([...itens]);
 
   const login = () => {
     setAuth(true);
@@ -18,6 +20,18 @@ function App() {
   const logout = () => {
     setAuth(false);
   };
+  console.log(card);
+  useEffect(() => {
+    localStorage.setItem("item", JSON.stringify(card));
+  }, [card]);
+
+  useEffect(() => {
+    const itens = JSON.parse(localStorage.getItem("item"));
+    if (itens) {
+      setCard(itens);
+      setFiltredCards(itens);
+    }
+  }, []);
 
   return (
     <div>
