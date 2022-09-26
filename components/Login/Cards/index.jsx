@@ -16,7 +16,15 @@ export const Cards = ({ card, setCard, filtredCard, setFiltredCards }) => {
       {(filtredCard ? filtredCard : card).map((cards, index) => {
         return (
           <>
-            <li key={index}>
+            <li
+              key={index}
+              style={{
+                borderLeft:
+                  cards.type === "Entrada"
+                    ? "3px solid #65DE01"
+                    : "3px solid #FA0101",
+              }}
+            >
               <div className="cards-left">
                 <h2>{cards.description}</h2>
                 <span className="type">{cards.type}</span>

@@ -9,7 +9,12 @@ import { Lista } from "./components/Login/Lista";
 import { useEffect } from "react";
 
 function App() {
+  if (!localStorage.getItem("item")) {
+    localStorage.setItem("item", JSON.stringify([]));
+  }
+
   const itens = JSON.parse(localStorage.getItem("item"));
+
   const [auth, setAuth] = useState(false);
   const [card, setCard] = useState([...itens]);
   const [filtredCard, setFiltredCards] = useState([...itens]);
@@ -20,7 +25,7 @@ function App() {
   const logout = () => {
     setAuth(false);
   };
-  console.log(card);
+
   useEffect(() => {
     localStorage.setItem("item", JSON.stringify(card));
   }, [card]);
