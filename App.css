@@ -1,3 +1,18 @@
+*::-webkit-scrollbar {
+    width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #868E96;
+    border-radius: 20px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #FD377E;
+    border-radius: 20px;
+    border: 1px solid #FD377E;
+}
+
 .container__geral {
     display: flex;
     flex-direction: column;
